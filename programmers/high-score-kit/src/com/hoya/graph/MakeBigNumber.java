@@ -28,18 +28,31 @@ public class MakeBigNumber {
 //        [0 , 0]
 //         4 - 2  = 2
 
-        for(int i = 0; i< numbers.length - get ; i++){
-            if(i==0){
+
+        boolean findBig = false;
+        for(int i = 0; i< get ; i++){
+            findBig = false;
+            if(i==0 || pick == 0){
                 pick = Integer.parseInt(list[i]);
                 pickIndex = 0;
             }else {
                 if(pick <  numbers[i+1]){
+                    findBig = true;
                     pick = numbers[i+1];
                     pickIndex = i+1;
-                    i = i+2;
+                    i = i+1;
                     t += pick;
-                };
+                    pick = 0;
+                }
             }
+
+            if(i == get-1 && !findBig){
+                pick = numbers[i];
+                i = i+1;
+                t+= pick;
+                pick=0;
+            }
+
         }
 
         return answer;
