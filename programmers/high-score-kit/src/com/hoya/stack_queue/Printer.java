@@ -1,7 +1,7 @@
 package com.hoya.stack_queue;
 
 public class Printer {
-    class Solution {
+    static class Solution {
         public int solution(int[] p, int location) {
             int length = p.length;
             int size = p.length - 1;
@@ -11,7 +11,9 @@ public class Printer {
                 int tmp = p[i];
                 for(int j=i; j<length; j++){
                     if(flag){
-                        p[j - 1] = p[j];
+                        if(j != 0){
+                            p[j - 1] = p[j];
+                        }
                         if(j == size){
                             p[size] = tmp;
                             flag = false;
@@ -34,5 +36,16 @@ public class Printer {
             return location+1;
         }
     }
+
+
+    public static void main(String[] args){
+        Solution s = new Solution();
+
+        int[] p = {1,1,9,1,1,1};
+
+        s.solution(p, 0);
+
+    }
+
 }
 
