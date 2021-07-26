@@ -31,7 +31,7 @@ public class MakeBigNumber {
 
         boolean findBig = false;
         for(int i = 0; i< get ; i++){
-            findBig = false;
+
             if(i==0 || pick == 0){
                 pick = Integer.parseInt(list[i]);
                 pickIndex = 0;
@@ -51,6 +51,7 @@ public class MakeBigNumber {
                 i = i+1;
                 t+= pick;
                 pick=0;
+                findBig = false;
             }
 
         }
